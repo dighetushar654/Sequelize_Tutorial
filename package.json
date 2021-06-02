@@ -2,13 +2,22 @@
   "name": "Sequelize_Tutorial",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dighetushar654/Sequelize_Tutorial.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dighetushar654/Sequelize_Tutorial/issues"
+  },
+  "homepage": "https://github.com/dighetushar654/Sequelize_Tutorial#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
