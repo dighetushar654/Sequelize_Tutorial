@@ -1,5 +1,6 @@
 const db = require("../models");
 const Movie = db.movies;
+const Comment = db.comments;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
@@ -29,6 +30,45 @@ exports.create = (req, res) => {
         });
       });
   };
+
+// Create and Save new Comments
+exports.createComment = (movieId, comment) => {
+  return Comment.create({
+    name: comment.name,
+    text: comment.text,
+    movieId: movieId,
+  })
+    .then((comment) => {
+      console.log(">> Created comment: " + JSON.stringify(comment, null, 4));
+      return comment;
+    })
+    .catch((err) => {
+      console.log(">> Error while creating comment: ", err);
+    });
+};
+
+// Get the comments for a given tutorial
+exports.findMovieById = (movieId) => {
+  return Movie.findByPk(movieId, { include: ["comments"] })
+    .then((movie) => {
+      return movie;
+    })
+    .catch((err) => {
+      console.log(">> Error while finding tutorial: ", err);
+    });
+};
+
+// Get the comments for a given comment id
+
+exports.findCommentById = (id) => {
+  return Comment.findByPk(id, { include: ["movie"] })
+    .then((comment) => {
+      return comment;
+    })
+    .catch((err) => {
+      console.log(">> Error while finding comment: ", err);
+    });
+};
 
 // Retrieve all movies/ find by title from the database:
 
