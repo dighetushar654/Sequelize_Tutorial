@@ -22,7 +22,7 @@ db.sequelize = sequelize;
 db.movies = require("./movie.model.js")(sequelize, Sequelize);
 db.comments = require("./comment.model.js")(sequelize, Sequelize);
 
-db.tutorials.hasMany(db.comments, { as: "comments" });
+db.movies.hasMany(db.comments, { as: "comments" });
 db.comments.belongsTo(db.movies, {
   foreignKey: "movieId",
   as: "movie",
