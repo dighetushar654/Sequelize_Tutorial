@@ -70,6 +70,16 @@ exports.findCommentById = (id) => {
     });
 };
 
+// Get all Tutorials include comments
+
+exports.findAll = () => {
+  return Movie.findAll({
+    include: ["comments"],
+  }).then((movies) => {
+    return movies;
+  });
+};
+
 // Retrieve all movies/ find by title from the database:
 
 exports.findAll = (req, res) => {
